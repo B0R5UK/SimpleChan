@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Chan</title>
+	<!--JQUERY CDN-->
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>	
+	<!--BOOTSTRAP CDN-->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+  <!--MY SCRIPTS AND CSS-->
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  <script src="/javascript/newpost.js"></script>
+  <script src="/javascript/newcomment.js"></script>
+  <script src="/javascript/imageresize.js"></script>
+  <!--TOGGLING BOOTSTRAP POPOVERS-->
+  <script>
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+  </script>
+</head>
+<body>
+    
+
+<!--TOP NAVBAR-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand mb-0 h1" href="/">Simple Chan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+  </div>
+</nav>
+
+<!--SECOND NAVBAR-->
+
+<nav class="navbar navbar-expand-lg boards">
+    <ul class="navbar-nav mr-auto">
+    	<span>
+    		Boards:
+    	</span>
+      	<li class="nav-item">
+       	 	<a class="" href="/b/">/b/</a>
+      	 <li class="nav-item">
+       	 	<a class="" href="/pepe/">/Pepe/</a>
+      	</li>
+    </ul>
+</nav>
+

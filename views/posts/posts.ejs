@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+
+<div class="jumbotron">
+
+<p>Currently on <%=board.name%> board!</p>
+<p>There are <%=board.posts.length%> posts!</p>
+
+<button type="button" class="btn btn-outline-dark" data-placement="bottom" data-toggle="popover" data-title="Adding new post" data-container="body" type="button" data-html="true" id="addnewpostbutton">
+	Add new!
+</button>
+
+
+<div id="addnewpost" class="hide">
+    <form method="POST" action="<%=board.name%>newpost" enctype="multipart/form-data">
+        <div class="form-group">    
+            <input class="form-control" type="text" name="author" placeholder="Nickname">    
+        </div>    	
+        <div class="form-group">    
+        	<p>Post image</p>
+            <input type="file" class="form-control-file" name="image">    
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" name="text" rows="3" placeholder="Post"></textarea>   
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-default btn-block">Send!</button>   
+        </div>
+    </form>
+</div>
+			
+	<ul class="posts">
+	    <% if(posts != null){ %>
+		<% for(var i=posts.length-1; i>=0 ; i--){%>
+		<li class="post">
+			<p class="postnumber">post no: <%=posts[i].number%></p>
+			<img class="postimg postimgmin" data-lightbox="postimage" src="<%=posts[i].image %>">
+			<p class="postauthor"><%=posts[i].author%></p>
+			<p class="posttext"><%=posts[i].text.substr(0,350)%>
+			<% if (posts[i].text.length >= 350) {%>
+			...
+			<% } %>
+			</p><a href="<%=board.name%><%=posts[i].id%>/">See more</a>
+		</li>
+		<% }; %>
+		<% }; %>
+	</ul>
+
+	
+</div>
+<% include ../partials/popovers %>
+<% include ../partials/footer %>
+
+
+
