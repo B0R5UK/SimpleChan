@@ -3,6 +3,16 @@ var router = express.Router();
 var Post = require("../../models/post.js");
 var Board = require("../../models/board.js");
 var multer  = require('multer');
+var get_ip = require('ipware')().get_ip;
+//GET IP
+router.use(function(req, res, next) {
+     var ip_info = get_ip(req);
+     console.log(ip_info);
+     // { clientIp: '127.0.0.1', clientIpRoutable: false }
+     next();
+ });
+
+
 
 //MULTER
 var storage = multer.diskStorage({
@@ -13,7 +23,7 @@ var storage = multer.diskStorage({
     let ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
     cb(null, Date.now() + ext);
   }
-})
+});
 //MULTER
 
 var upload = multer({ storage: storage });
@@ -47,7 +57,8 @@ router.post("/:boardname/newpost/", upload.single("image"), function(req, res){
             console.log("error finding Board" + err);
             res.redirect("/"+req.params.boardname+"/");
       } else {
-          var newPost={number:foundBoard.posts.length + 1,author: req.body.author, image: imagesrc, text: req.body.text};
+          var getip=get_ip(req);
+          var newPost={ipadress:getip.clientIP,number:foundBoard.posts.length + 1,author: req.body.author, image: imagesrc, text: req.body.text};
           Post.create(newPost,function(err,post){
                 if(err){
                     console.log("error creating post: " + err);
