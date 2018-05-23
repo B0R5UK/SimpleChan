@@ -65,7 +65,7 @@ router.post("/:boardname/newpost/", upload.single("image"), function(req, res){
                 }  else{
                     foundBoard.posts.push(post);
                     foundBoard.save();
-                    res.redirect("/"+req.params.boardname+"/");
+                    res.redirect("/simplechan/"+req.params.boardname+"/");
                 }  
             }
             );
