@@ -43,7 +43,7 @@ router.post("/:boardname/:postid/newcomment",upload.single('commentimage'), func
             }  else{
                 post.comments.push(comment);
                 post.save();
-                res.redirect("/" + req.params.boardname + "/" + req.params.postid + "/");
+                res.redirect("/simplechan/" + req.params.boardname + "/" + req.params.postid + "/");
             }
            });
         }
