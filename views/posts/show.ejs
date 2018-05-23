@@ -5,7 +5,7 @@
 
 
 <div id="addnewcomment" class="hide">
-    <form method="POST" action="/<%=boardname%>/<%=post.id%>/newcomment" enctype="multipart/form-data">
+    <form method="POST" action="/simplechan/<%=boardname%>/<%=post.id%>/newcomment" enctype="multipart/form-data">
         <div class="form-group">    
             <input class="form-control" type="text" name="author" placeholder="Nickname">    
         </div>    	
@@ -24,7 +24,7 @@
 			
 	<ul class="posts">
 		<li class="post">
-			<img class="postimg postimgmin" src="<%=post.image %>">
+			<img class="postimg postimgmin" src="borsuk.tk/simplechan/<%=post.image %>">
 			<p class="postauthor"><%=post.author%></p>
 			<p class="posttext"><%=post.text%>
 			<p class="posttags">
@@ -35,7 +35,7 @@
 	<ul class="comments">
 		<% for(var i=0; i<post.comments.length ; i++) {%>
 	    <li class="comment">
-	        <img class="postimg postimgmin" src="<%=post.comments[i].image %>">
+	        <img class="postimg postimgmin" src="borsuk.tk/simplechan/<%=post.comments[i].image %>">
 			<p class="postauthor"><%= post.comments[i].author %></p>
 			<p class="commenttext"><%=post.comments[i].text%>
 	    </li>
@@ -47,7 +47,7 @@
 </button>
 	
 </div>
-<% include ../partials/popovers %>
+
 <% include ../partials/footer %>
 
 
