@@ -11,7 +11,7 @@
 
 
 <div id="addnewpost" class="hide">
-    <form method="POST" action="<%=board.name%>newpost" enctype="multipart/form-data">
+    <form method="POST" action="/simplechan<%=board.name%>newpost" enctype="multipart/form-data">
         <div class="form-group">    
             <input class="form-control" type="text" name="author" placeholder="Nickname">    
         </div>    	
@@ -33,13 +33,13 @@
 		<% for(var i=posts.length-1; i>=0 ; i--){%>
 		<li class="post">
 			<p class="postnumber">post no: <%=posts[i].number%></p>
-			<img class="postimg postimgmin" data-lightbox="postimage" src="<%=posts[i].image %>">
+			<img class="postimg postimgmin" data-lightbox="postimage" src="borsuk.tk/simplechan/<%=posts[i].image %>">
 			<p class="postauthor"><%=posts[i].author%></p>
 			<p class="posttext"><%=posts[i].text.substr(0,350)%>
 			<% if (posts[i].text.length >= 350) {%>
 			...
 			<% } %>
-			</p><a href="<%=board.name%><%=posts[i].id%>/">See more</a>
+			</p><a href="/simplechan<%=board.name%><%=posts[i].id%>/">See more</a>
 		</li>
 		<% }; %>
 		<% }; %>
@@ -47,7 +47,7 @@
 
 	
 </div>
-<% include ../partials/popovers %>
+
 <% include ../partials/footer %>
 
 
