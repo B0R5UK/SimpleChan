@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({extended: true})); //bodyparser
 app.use('*/javascript',express.static(path.join(__dirname, 'public/javascript')));
 app.use('*/stylesheets',express.static(path.join(__dirname, 'public/stylesheets')));
 app.use('*/uploads',express.static(path.join(__dirname, 'public/uploads')));
+app.use('*/img',express.static(path.join(__dirname, 'public/images')));
 
 var postsRoutes = require("./views/routes/posts.js");
 var commentRoutes = require("./views/routes/comments.js");
@@ -31,3 +32,8 @@ app.use(commentRoutes);
 app.listen('3000', function(){
 console.log("server started on port 3000");
 });
+
+setTimeout(function(){
+console.log("rebooting app");
+process.exit(0);
+}, 12 * 60 * 60 * 1000);
