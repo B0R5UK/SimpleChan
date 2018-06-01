@@ -48,7 +48,11 @@ router.get("/:boardname/",function(req,res){
 });
 
 router.post("/:boardname/newpost/", upload.single("image"), function(req, res){
-    var imagesrc = "/uploads/" + req.file.filename;
+    if(req.file){
+      var imagesrc = "/uploads/" + req.file.filename;
+    }else{
+      var imagesrc = "/img/blank.gif";
+    }
     Board
     .findOne({})
     .where("name").equals("/"+req.params.boardname+"/")
