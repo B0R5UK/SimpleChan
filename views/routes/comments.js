@@ -29,7 +29,11 @@ var upload = multer({ storage: storage });
 
 
 router.post("/:boardname/:postid/newcomment",upload.single('commentimage'), function(req, res){
-    var imagesrc = "/uploads/" + req.file.filename;
+    if(req.file){
+      var imagesrc = "/uploads/" + req.file.filename;
+    }else{
+      var imagesrc = "/img/blank.gif";
+    }
     var getip=get_ip(req);
     var newComment={ipadress:getip.clientIP,author: req.body.author, image: imagesrc, text: req.body.text};
     Post.findById(req.params.postid, function(err, post) {
